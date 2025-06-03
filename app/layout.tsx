@@ -11,13 +11,13 @@ import { baseUrl } from "./sitemap";
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Hamza EL GATIA | Portfolio",
+    default: "Hamza EL GATIA",
     template: "%s | Hamza EL GATIA Portfolio",
   },
   description:
     "I'm Hamza EL GATIA, R&D Software Engineer at Axelor. Lead developer on dematerialization projects. Java, React & React Native specialist.",
   openGraph: {
-    title: "Hamza EL GATIA | Portfolio",
+    title: "Hamza EL GATIA",
     description:
       "I'm Hamza EL GATIA, R&D Software Engineer at Axelor. Lead developer on dematerialization projects. Java, React & React Native specialist.",
     url: baseUrl,
@@ -55,7 +55,7 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased max-w-4xl mx-4 mt-8 lg:mx-auto">
+      <body className="antialiased max-w-6xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Navbar />
           {children}

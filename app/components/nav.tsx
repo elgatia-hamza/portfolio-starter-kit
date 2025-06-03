@@ -38,9 +38,9 @@ export function Navbar() {
           {/* Primary Action Button on the far right */}
           <Link
             href="mailto:hamzaelgatia7@gmail.com"
-            className="bg-blue-600 text-white font-semibold rounded-lg px-4 py-2 ml-4 shadow hover:bg-blue-700 transition-colors"
+            className="bg-blue-600 text-white font-semibold rounded-full px-4 py-2 ml-4 shadow hover:bg-blue-700 transition-colors"
           >
-            Hire Me
+            Contact Me
           </Link>
         </nav>
       </div>
