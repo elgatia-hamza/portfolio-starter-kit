@@ -1,61 +1,82 @@
-function ArrowIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
+import Link from "next/link";
+import Logo from "./logo";
+
+const footerLinks = [
+	{
+		title: "About",
+		links: [
+			{ label: "Bio", href: "/about" },
+			{ label: "Skills", href: "/about#skills" },
+			{ label: "Resume", href: "/resume.pdf", external: true },
+		],
+	},
+	{
+		title: "Projects",
+		links: [
+			{ label: "Portfolio", href: "/project" },
+			{ label: "GitHub", href: "https://github.com/elgatia-hamza", external: true },
+			{ label: "CodePen", href: "https://codepen.io/", external: true },
+		],
+	},
+	{
+		title: "Blog",
+		links: [
+			{ label: "All Posts", href: "/blog" },
+			{ label: "Categories", href: "/blog#categories" },
+			{ label: "RSS", href: "/rss", external: true },
+		],
+	},
+	{
+		title: "Contact",
+		links: [
+			{ label: "Email", href: "mailto:hamzaelgatia7@gmail.com", external: true },
+			{ label: "LinkedIn", href: "https://www.linkedin.com/in/hamzaelgatia/", external: true },
+			{ label: "Contact Me", href: "/#contact" },
+		],
+	},
+];
 
 export default function Footer() {
-  return (
-    <footer className="mb-16">
-      <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="/rss"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">rss</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/elgatia-hamza"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://www.linkedin.com/in/hamzaelgatia/"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">linkedin</p>
-          </a>
-        </li>
-      </ul>
-      <p className="mt-8 text-neutral-600 dark:text-neutral-300">
-        © {new Date().getFullYear()} Hamza EL GATIA. MIT Licensed.
-      </p>
-    </footer>
-  )
+	return (
+		<footer className="mt-16 px-4">
+			<hr className="border-neutral-200 dark:border-neutral-800 mb-8" />
+			<div className="max-w-6xl mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-8">
+				{/* Logo and copyright */}
+				<div className="mb-8 md:mb-0 flex-shrink-0 flex flex-col items-start">
+					<Link href="/" aria-label="Home">
+						<Logo width={48} height={32} />
+					</Link>
+					<p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
+						© {new Date().getFullYear()} Hamza EL GATIA. MIT Licensed.
+					</p>
+				</div>
+				{/* Footer Columns pushed right */}
+				<div className="w-full flex justify-end">
+					<div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+						{footerLinks.map((section) => (
+							<div key={section.title}>
+								<h4 className="font-semibold text-black dark:text-white mb-3 text-base">
+									{section.title}
+								</h4>
+								<ul className="space-y-2">
+									{section.links.map((link) => (
+										<li key={link.label}>
+											<Link
+												href={link.href}
+												target={link.external ? "_blank" : undefined}
+												rel={link.external ? "noopener noreferrer" : undefined}
+												className="text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-all"
+											>
+												{link.label}
+											</Link>
+										</li>
+									))}
+								</ul>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</footer>
+	);
 }

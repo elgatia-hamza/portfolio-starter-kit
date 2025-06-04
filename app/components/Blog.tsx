@@ -1,4 +1,4 @@
-import { BlogPosts } from "./posts";
+import { BlogPosts } from "./Posts";
 
 function Blog() {
   return (

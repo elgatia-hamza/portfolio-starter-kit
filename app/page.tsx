@@ -1,14 +1,17 @@
-import { BlogPosts } from "app/components/posts";
 import HeroSection from "./components/HeroSection";
 import Blog from "./components/Blog";
-import AboutMeSection from "./components/AboutMeSection"; // New import
+import AboutMeSection from "./components/AboutMeSection";
+import { ContactForm } from "./components/ContactForm";
+import CallToAction from "./components/CallToAction";
 
 export default function Page() {
   return (
     <>
       <HeroSection />
-      <AboutMeSection /> {/* New component */}
+      <AboutMeSection />
       <Blog />
+      <CallToAction />
+      <ContactForm />
     </>
   );
 }
