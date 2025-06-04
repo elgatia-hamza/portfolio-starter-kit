@@ -1,4 +1,4 @@
-import { BlogPosts } from 'app/components/Posts'
+import { BlogPosts } from 'app/components/posts'
 
 export const metadata = {
   title: 'Blog | Hamza EL GATIA',
